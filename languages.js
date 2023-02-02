@@ -23,8 +23,8 @@ module.exports = {
   'de-DE': {
     true: 'WAHR',
     false: 'FALSCH',
-    verticalSeparator: ';',
-    horizontalSeparator: '.',
+    verticalSeparator: '.',
+    horizontalSeparator: ';',
     argumentSeparator: ';',
     decimalSeparator: ',',
     reformatNumberForJsParsing: function (n) {
@@ -35,8 +35,8 @@ module.exports = {
     }
   },
   'en-EU': {
-    verticalSeparator: ';',
-    horizontalSeparator: '.',
+    verticalSeparator: '.',
+    horizontalSeparator: ';',
     argumentSeparator: ';',
     decimalSeparator: ',',
     reformatNumberForJsParsing: function (n) {
