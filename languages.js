@@ -35,6 +35,8 @@ module.exports = {
     }
   },
   'en-EU': {
+    true: 'TRUE',
+    false: 'FALSE',
     verticalSeparator: '.',
     horizontalSeparator: ';',
     argumentSeparator: ';',
