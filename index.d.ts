@@ -2,7 +2,7 @@ export interface Token {
   value: string;
   type: string;
   subtype: string;
-  isEmplicitIntersection?: boolean;
+  isImplicitIntersection?: boolean;
 }
 
 export interface Options {
