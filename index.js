@@ -643,6 +643,7 @@ function tokenize(formula, options) {
     if (token.type == TOK_TYPE_FUNCTION) {
       if (token.value.substr(0, 1) == '@') {
         token.value = token.value.substr(1);
+        token.isImplicitIntersection = true;
       }
       continue;
     }
