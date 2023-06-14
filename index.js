@@ -61,6 +61,29 @@ var TYPES = {
 
 var NEWLINE_MATCHER = /(\r|\n)+/g;
 
+var FUNCTION_NAMES_WITH_DOT_GERMAN = [
+  "OBERGRENZE",
+  "UNTERGRENZE",
+  "NETTOARBEITSTAGE",
+  "BEREICH",
+  "QUANTIL",
+  "QUANTILSRANG",
+  "QUARTILE",
+  "RANG",
+  "STABW"
+];
+
+var FUNCTION_NAMES_WITH_DOT_ENGLISH = [
+  "CEILING",
+  "FLOOR",
+  "NETWORKDAYS",
+  "PERCENTILE",
+  "PERCENTRANK",
+  "QUARTILE",
+  "RANK",
+  "STDEV"
+];
+
 function createToken(value, type, subtype = '') {
   return { value, type, subtype };
 }
@@ -441,8 +464,21 @@ function tokenize(formula, options) {
     }
 
     if (currentChar() == language.verticalSeparator) {
-      checkAndAddToken(token, TOK_TYPE_OPERAND);
 
+      var isNotGermanSeparator =
+        options.language === "de-DE" &&
+        FUNCTION_NAMES_WITH_DOT_GERMAN.includes(token);
+
+      var isNotEnglishSeparator = 
+        options.language === "en-EU" &&
+        FUNCTION_NAMES_WITH_DOT_ENGLISH.includes(token);
+
+      if (isNotGermanSeparator || isNotEnglishSeparator) {
+        token += currentChar();
+        offset += 1;
+        continue;
+      }
+      checkAndAddToken(token, TOK_TYPE_OPERAND);
       tokens.addRef(tokenStack.pop(TOK_VALUE_ARRAYROW));
 
       if (tokenStack.type() == TOK_TYPE_FUNCTION) {
