@@ -441,8 +441,13 @@ function tokenize(formula, options) {
     }
 
     if (currentChar() == language.verticalSeparator) {
+      console.log("wir bimsen im if",currentChar(),token,tokens,tokenStack)
+      if (token==="BEREICH"){
+        token += currentChar();
+        offset += 1;
+        continue
+      }
       checkAndAddToken(token, TOK_TYPE_OPERAND);
-
       tokens.addRef(tokenStack.pop(TOK_VALUE_ARRAYROW));
 
       if (tokenStack.type() == TOK_TYPE_FUNCTION) {
