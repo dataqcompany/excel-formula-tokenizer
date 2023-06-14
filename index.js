@@ -71,7 +71,7 @@ var FUNCTION_NAMES_WITH_DOT_GERMAN = [
   "QUARTILE",
   "RANG",
   "STABW"
-]
+];
 
 var FUNCTION_NAMES_WITH_DOT_ENGLISH = [
   "CEILING",
@@ -82,7 +82,7 @@ var FUNCTION_NAMES_WITH_DOT_ENGLISH = [
   "QUARTILE",
   "RANK",
   "STDEV"
-]
+];
 
 function createToken(value, type, subtype = '') {
   return { value, type, subtype };
@@ -465,16 +465,18 @@ function tokenize(formula, options) {
 
     if (currentChar() == language.verticalSeparator) {
 
-      var isNotGermanSeparator = options.language==="de-DE"&&
-      FUNCTION_NAMES_WITH_DOT_GERMAN.includes(token)
+      var isNotGermanSeparator =
+        options.language === "de-DE" &&
+        FUNCTION_NAMES_WITH_DOT_GERMAN.includes(token);
 
-      var isNotEnglishSeparator = options.language==="en-EU"&&
-      FUNCTION_NAMES_WITH_DOT_ENGLISH.includes(token)
+      var isNotEnglishSeparator = 
+        options.language === "en-EU" &&
+        FUNCTION_NAMES_WITH_DOT_ENGLISH.includes(token);
 
       if (isNotGermanSeparator || isNotEnglishSeparator) {
         token += currentChar();
         offset += 1;
-        continue
+        continue;
       }
       checkAndAddToken(token, TOK_TYPE_OPERAND);
       tokens.addRef(tokenStack.pop(TOK_VALUE_ARRAYROW));
