@@ -1,5 +1,5 @@
 function reformatNumberForCommaArgumentSeparator(n){
-  return n
+  return n;
 }
 function reformatNumberForSemiColonArgumentSeparator(n){
   return n.replace(',', '.');
@@ -30,9 +30,9 @@ const SEPARATOR_MAP = {
 
 function getLanguageObjectFromLanguageAndSeparator(displayLanguage, decimalSeparator) {
   const isDELanguage = displayLanguage.match(/de\-/);
-  if (!SEPARATOR_MAP[decimalSeparator]) return undefined
-  const trueValue = isDELanguage ?  'WAHR' : "TRUE"
-  const falseValue = isDELanguage ?  'FALSCH' : "FALSE"
+  if (!SEPARATOR_MAP[decimalSeparator]) return undefined;
+  const trueValue = isDELanguage ?  'WAHR' : "TRUE";
+  const falseValue = isDELanguage ?  'FALSCH' : "FALSE";
   return {
     ...SEPARATOR_MAP[decimalSeparator],
     true: trueValue,
