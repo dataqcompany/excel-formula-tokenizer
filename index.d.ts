@@ -6,7 +6,7 @@ export interface Token {
 }
 
 export interface Options {
-  language?: 'en-US' | 'de-DE' | 'en-EU';
+  language?: 'en-US' | 'de-DE' | 'de-DE-COM' | 'en-EU';
   keepPrefixOperators: boolean;
   preserveLanguage?: boolean;
   asClass?: boolean;
