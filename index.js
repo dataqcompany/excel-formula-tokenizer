@@ -659,6 +659,7 @@ function tokenize(formula, options) {
     }
 
     if (token.type == TOK_TYPE_OPERAND && token.subtype.length == 0) {
+      console.log("tokentype === operand && subtype length === 0",token.type,token.value,language.true,language,false)
       if (isNaN(Number(language.reformatNumberForJsParsing(token.value)))) {
         if (token.value == language.true) {
           token.subtype = TOK_SUBTYPE_LOGICAL;
@@ -667,6 +668,7 @@ function tokenize(formula, options) {
           token.subtype = TOK_SUBTYPE_LOGICAL;
           token.value = options.preserveLanguage ? language.false : TOK_VALUE_FALSE;
         } else {
+          console.log("in else",token)
           token.subtype = TOK_SUBTYPE_RANGE;
         }
       } else {
