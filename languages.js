@@ -34,6 +34,20 @@ module.exports = {
       return /^[1-9]{1}(,[0-9]+)?E{1}$/.test(token);
     }
   },
+  'de-DE-COM': {
+    true: 'WAHR',
+    false: 'FALSCH',
+    verticalSeparator: ';',
+    horizontalSeparator: ',',
+    argumentSeparator: ',',
+    decimalSeparator: '.',
+    reformatNumberForJsParsing: function (n) {
+      return n;
+    },
+    isScientificNotation: function (token) {
+      return /^[1-9]{1}(\.[0-9]+)?E{1}$/.test(token);
+    }
+  },
   'en-EU': {
     true: 'TRUE',
     false: 'FALSE',
