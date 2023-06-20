@@ -29,8 +29,9 @@ const SEPARATOR_MAP = {
 }
 
 function getLanguageObjectFromLanguageAndSeparator(displayLanguage, decimalSeparator) {
-  const isDELanguage = displayLanguage.match(/de\-/);
+  console.log("in getLang",displayLanguage,decimalSeparator)
   if (!SEPARATOR_MAP[decimalSeparator]) return undefined;
+  const isDELanguage = displayLanguage.match(/de\-/);
   const trueValue = isDELanguage ?  'WAHR' : "TRUE";
   const falseValue = isDELanguage ?  'FALSCH' : "FALSE";
   return {
