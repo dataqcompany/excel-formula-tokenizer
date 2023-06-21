@@ -1,30 +1,17 @@
-function reformatNumberForCommaArgumentSeparator(n){
-  return n;
-};
-function reformatNumberForSemiColonArgumentSeparator(n){
-  return n.replace(',', '.');
-};
-function isScientificNotationForCommaArgumentSeparator (token) {
-  return /^[1-9]{1}(\.[0-9]+)?E{1}$/.test(token);
-};
-function isScientificNotationForSemiColonArgumentSeparator (token) {
-  return /^[1-9]{1}(,[0-9]+)?E{1}$/.test(token);
-};
-
 const SEPARATOR_MAP = {
   ",": {
     verticalSeparator: '.',
     horizontalSeparator: ';',
     argumentSeparator: ';',
-    reformatNumberForJsParsing: reformatNumberForSemiColonArgumentSeparator,
-    isScientificNotation: isScientificNotationForSemiColonArgumentSeparator
+    reformatNumberForJsParsing: (n) => n.replace(',', '.'),
+    isScientificNotation: (token) => /^[1-9]{1}(,[0-9]+)?E{1}$/.test(token)
   },
   ".": {
     verticalSeparator: ';',
     horizontalSeparator: ',',
     argumentSeparator: ',',
-    reformatNumberForJsParsing: reformatNumberForCommaArgumentSeparator,
-    isScientificNotation: isScientificNotationForCommaArgumentSeparator
+    reformatNumberForJsParsing: (n) => n,
+    isScientificNotation: (token) => /^[1-9]{1}(\.[0-9]+)?E{1}$/.test(token)
   }
 };
 
