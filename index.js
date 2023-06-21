@@ -193,7 +193,7 @@ function tokenize(formula, options) {
   options = options || {};
   options.language = options.language || 'en-US';
 
-  var language = getLanguageObjectFromLanguageAndSeparator(options.language, options.seperator)
+  var language = getLanguageObjectFromLanguageAndSeparator(options.language, options.separator)
   if (!language) {
     var msg =
       'Unsupported language ' + options.language + '. Expected one of: ' + Object.keys(languages).sort().join(', ');
