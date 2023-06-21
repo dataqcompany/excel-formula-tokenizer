@@ -1,4 +1,3 @@
-var languages = require('./languages');
 var getLanguageObjectFromLanguageAndSeparator = require('./languageHelper').getLanguageObjectFromLanguageAndSeparator;
 
 var TOK_TYPE_NOOP = 'noop';
@@ -195,7 +194,7 @@ function tokenize(formula, options) {
   var language = getLanguageObjectFromLanguageAndSeparator(options.language, options.separator);
   if (!language) {
     var msg =
-      'Unsupported language ' + options.language + '. Expected one of: ' + Object.keys(languages).sort().join(', ');
+      'Unsupported language ' + options.language;
     throw new Error(msg);
   }
 
