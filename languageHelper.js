@@ -1,15 +1,15 @@
 function reformatNumberForCommaArgumentSeparator(n){
   return n;
-}
+};
 function reformatNumberForSemiColonArgumentSeparator(n){
   return n.replace(',', '.');
-}
+};
 function isScientificNotationForCommaArgumentSeparator (token) {
   return /^[1-9]{1}(\.[0-9]+)?E{1}$/.test(token);
-}
+};
 function isScientificNotationForSemiColonArgumentSeparator (token) {
   return /^[1-9]{1}(,[0-9]+)?E{1}$/.test(token);
-}
+};
 
 const SEPARATOR_MAP = {
   ",": {
@@ -26,7 +26,7 @@ const SEPARATOR_MAP = {
     reformatNumberForJsParsing: reformatNumberForCommaArgumentSeparator,
     isScientificNotation: isScientificNotationForCommaArgumentSeparator
   }
-}
+};
 
 function getLanguageObjectFromLanguageAndSeparator(displayLanguage, decimalSeparator) {
   if (!SEPARATOR_MAP[decimalSeparator]) throw new Error("Invalid decimal separator");
@@ -39,6 +39,6 @@ function getLanguageObjectFromLanguageAndSeparator(displayLanguage, decimalSepar
     false: falseValue,
     decimalSeparator,
   }
-}
+};
 
 module.exports = { getLanguageObjectFromLanguageAndSeparator }
