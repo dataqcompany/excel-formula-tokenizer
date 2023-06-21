@@ -189,6 +189,7 @@ class TokenStack {
  * @returns {Token[]|Tokens} - If options.asClass is true then the Tokens class gets return. Otherwise this returns an array of Token objects.
  */
 function tokenize(formula, options) {
+  console.log("tokenize",options)
   options = options || {};
   options.language = options.language || 'en-US';
 
