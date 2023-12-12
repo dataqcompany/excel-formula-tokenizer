@@ -642,7 +642,7 @@ function tokenize(formula, options) {
       ) {
         token.subtype = TOK_SUBTYPE_MATH;
       } else {
-        token.type = TOK_TYPE_NOOP;
+        token.type = options.keepPrefixOperators ? TOK_TYPE_OP_PRE : TOK_TYPE_NOOP;
       }
       continue;
     }
